@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Cream/Beige Background (#F5F1E8) */
+    --background: 42 33% 94%;
+    /* Dark Emerald Foreground for text readability */
+    --foreground: 161 90% 15%;
+    
+    /* Emerald Green Primary (#059669) */
+    --primary: 161 94% 30%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Gold Accent/Secondary (#C9A961) */
+    --secondary: 42 49% 58%;
+    --secondary-foreground: 161 90% 15%;
+    
+    --accent: 42 49% 58%;
+    --accent-foreground: 161 90% 15%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 161 90% 15%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 161 90% 15%;
+    
+    --muted: 161 20% 90%;
+    --muted-foreground: 161 30% 40%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 161 20% 85%;
+    --input: 161 20% 85%;
+    --ring: 161 94% 30%;
+    
+    --radius: 1rem;
+    
+    --sidebar-background: 42 33% 94%;
+    --sidebar-foreground: 161 90% 15%;
+    --sidebar-primary: 161 94% 30%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 161 20% 90%;
+    --sidebar-accent-foreground: 161 90% 15%;
+    --sidebar-border: 161 20% 85%;
+    --sidebar-ring: 161 94% 30%;
+
+    /* WhatsApp Button Tokens */
+    --whatsapp-bg: 0 0% 100%;
+    --whatsapp-text: 161 94% 30%;
+
+    /* Header & Footer Specific Tokens */
+    --header-bg: 42 33% 94%;
+    --header-text: 161 90% 15%;
+  }
+  
+  .dark {
+    --background: 161 90% 5%;
+    --foreground: 42 33% 94%;
+    
+    --primary: 161 84% 39%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 42 49% 58%;
+    --secondary-foreground: 161 90% 5%;
+    
+    --accent: 42 49% 58%;
+    --accent-foreground: 161 90% 5%;
+    
+    --card: 161 90% 8%;
+    --card-foreground: 42 33% 94%;
+    
+    --popover: 161 90% 8%;
+    --popover-foreground: 42 33% 94%;
+    
+    --muted: 161 30% 16%;
+    --muted-foreground: 161 20% 75%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 42 33% 94%;
+    
+    --border: 161 30% 20%;
+    --input: 161 30% 20%;
+    --ring: 42 49% 58%;
+
+    --whatsapp-bg: 0 0% 100%;
+    --whatsapp-text: 161 84% 39%;
+
+    /* Header & Footer Specific Tokens */
+    --header-bg: 161 90% 5%;
+    --header-text: 42 33% 94%;
+  }
+  
+  * {
+    border-color: hsl(var(--border));
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    overflow-x: clip;
+    font-variant-numeric: tabular-nums;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+  }
+  
+  p {
+    max-width: 65ch;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .container-custom {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  @media (min-width: 640px) {
+    .container-custom {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container-custom {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+      max-width: 1280px;
+    }
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 10px 40px -10px rgba(16, 185, 129, 0.05);
+  }
+  
+  .dark .glass-card {
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(201, 169, 97, 0.1);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.3);
+  }
+
+  /* WhatsApp Button Base Styles */
+  .btn-whatsapp {
+    background-color: hsl(var(--whatsapp-bg));
+    color: hsl(var(--whatsapp-text));
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .btn-whatsapp:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.2), 0 4px 6px -2px rgba(16, 185, 129, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  .btn-whatsapp:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+}
